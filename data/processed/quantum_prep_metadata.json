@@ -1,0 +1,23 @@
+{
+  "dataset_name": "Delaney ESOL (Quantum 4-Qubit Scaled)",
+  "num_qubits": 4,
+  "features": [
+    "logp",
+    "molecular_weight",
+    "tpsa",
+    "molar_refractivity"
+  ],
+  "angle_bounds": [
+    0.0,
+    3.141592653589793
+  ],
+  "solubility_threshold_logs": -3.0,
+  "full_samples": {
+    "train": 902,
+    "test": 226
+  },
+  "subsample_samples": {
+    "train": 160,
+    "test": 40
+  }
+}

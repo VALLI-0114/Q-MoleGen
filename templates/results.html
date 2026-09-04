@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}Ranked Molecular Candidates | Q-MolGen{% endblock %}
+
+{% block content %}
+<div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+            <span class="badge badge-success" style="margin-bottom: 0.5rem;">Batch Complete</span>
+            <h1 style="font-size: 2.2rem;">Generated Molecular Candidates</h1>
+            <p style="color: var(--text-secondary);">Ranked via multi-objective Pareto scoring combining classical solubility and quantum kernel metrics.</p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+            <a href="/generate/" class="btn btn-outline">Modify Objectives</a>
+            <a href="/library/" class="btn btn-primary">Save to Library</a>
+        </div>
+    </div>
+
+    <!-- Candidate Cards Grid -->
+    <div class="molecule-grid">
+        {% for cand in candidates %}
+        <div class="molecule-card">
+            <div style="padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle);">
+                <span class="badge badge-cyan">Rank #{{ forloop.counter }}</span>
+                <span class="badge badge-purple">Score: {{ cand.score }}/100</span>
+            </div>
+            
+            <!-- Live RDKit 2D SVG Rendering -->
+            <div class="molecule-img-container">
+                {% if cand.svg %}
+                    {{ cand.svg|safe }}
+                {% else %}
+                    <div style="color: #666; font-size: 0.85rem;">2D Diagram Unavailable</div>
+                {% endif %}
+            </div>
+
+            <div class="molecule-body">
+                <div class="smiles-code" title="{{ cand.smiles }}">{{ cand.smiles }}</div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+                    <div><strong>MW:</strong> {{ cand.molecular_weight }} Da</div>
+                    <div><strong>LogP:</strong> {{ cand.logp }}</div>
+                    <div><strong>TPSA:</strong> {{ cand.tpsa }} Å²</div>
+                    <div><strong>HBD/HBA:</strong> {{ cand.hbd }}/{{ cand.hba }}</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); font-size: 0.85rem;">
+                    <div>
+                        <span style="color: var(--emerald-bio); font-weight: 600;">LogS: {{ cand.pred_solubility }}</span>
+                        <span style="color: var(--text-muted); font-size: 0.75rem;">(Pred)</span>
+                    </div>
+                    <div>
+                        <span style="color: var(--purple-quantum); font-weight: 600;">QML: {{ cand.quantum_score }}</span>
+                    </div>
+                </div>
+
+                <a href="/molecule/{{ cand.id }}/" class="btn btn-outline" style="width: 100%; margin-top: 0.5rem; font-size: 0.85rem; padding: 0.5rem 1rem;">
+                    View Detailed Profile &rarr;
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

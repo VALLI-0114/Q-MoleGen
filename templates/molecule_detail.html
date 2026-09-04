@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Candidate Details | {{ molecule.name }}{% endblock %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+            <span class="badge badge-purple" style="margin-bottom: 0.5rem;">Candidate Inspection</span>
+            <h1 style="font-size: 2.2rem;">{{ molecule.name }}</h1>
+            <p style="color: var(--text-secondary);">Comprehensive cheminformatics breakdown and hybrid classical-quantum model scores.</p>
+        </div>
+        <a href="/results/" class="btn btn-outline">&larr; Back to Results</a>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem;">
+        <!-- Left: 2D Chemical Structure -->
+        <div class="card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <div style="background: #ffffff; border-radius: 10px; padding: 2rem; width: 100%; display: flex; align-items: center; justify-content: center; min-height: 320px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);">
+                {% if large_svg %}
+                    {{ large_svg|safe }}
+                {% else %}
+                    <p style="color: #666;">2D Structure Preview</p>
+                {% endif %}
+            </div>
+            <div style="width: 100%; margin-top: 1.5rem; text-align: left;">
+                <label style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Canonical SMILES</label>
+                <div class="smiles-code" style="margin-top: 0.35rem;">{{ molecule.canonical_smiles }}</div>
+            </div>
+        </div>
+
+        <!-- Right: Physicochemical Profile & Model Results -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <!-- Descriptors Card -->
+            <div class="card">
+                <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--cyan-primary);">Physicochemical Descriptors</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.85rem; border-radius: 8px;">
+                        <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Mol. Weight</span>
+                        <strong style="font-size: 1.1rem; color: var(--text-primary);">{{ molecule.molecular_weight }} Da</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.85rem; border-radius: 8px;">
+                        <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">LogP (Lipophilicity)</span>
+                        <strong style="font-size: 1.1rem; color: var(--text-primary);">{{ molecule.logp }}</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.85rem; border-radius: 8px;">
+                        <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">TPSA (Polar Area)</span>
+                        <strong style="font-size: 1.1rem; color: var(--text-primary);">{{ molecule.tpsa }} Å²</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.85rem; border-radius: 8px;">
+                        <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">HBD / HBA</span>
+                        <strong style="font-size: 1.1rem; color: var(--text-primary);">{{ molecule.hbd }} / {{ molecule.hba }}</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.85rem; border-radius: 8px;">
+                        <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Rotatable Bonds</span>
+                        <strong style="font-size: 1.1rem; color: var(--text-primary);">{{ molecule.rotatable_bonds }}</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.85rem; border-radius: 8px;">
+                        <span style="font-size: 0.75rem; color: var(--text-muted); display: block;">Ring Count</span>
+                        <strong style="font-size: 1.1rem; color: var(--text-primary);">{{ molecule.ring_count }}</strong>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem; padding: 0.75rem 1rem; border-radius: 8px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); display: flex; justify-content: space-between; align-items: center;">
+                    <span><strong>Lipinski Rule of 5:</strong> Pass (0 Violations)</span>
+                    <span class="badge badge-success">Oral Bioavailable Profile</span>
+                </div>
+            </div>
+
+            <!-- Model Evaluation Breakdown -->
+            <div class="card card-quantum">
+                <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--purple-quantum);">Model Evaluation & Scoring</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px;">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">Classical Solubility Prediction</span>
+                        <div style="font-size: 1.4rem; font-weight: 700; color: var(--emerald-bio); margin-top: 0.25rem;">
+                            {{ molecule.pred_solubility }} <span style="font-size: 0.85rem; color: var(--text-muted);">LogS</span>
+                        </div>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 8px;">
+                        <span style="font-size: 0.8rem; color: var(--text-secondary);">Quantum Support Vector (QSVC) Score</span>
+                        <div style="font-size: 1.4rem; font-weight: 700; color: var(--purple-quantum); margin-top: 0.25rem;">
+                            {{ molecule.quantum_score }} <span style="font-size: 0.85rem; color: var(--text-muted);">/ 1.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

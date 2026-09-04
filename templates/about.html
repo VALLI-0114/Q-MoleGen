@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Methodology & Academic Context | Q-MolGen{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">Academic Methodology</span>
+        <h1 style="font-size: 2.2rem;">Q-MolGen Platform Methodology</h1>
+        <p style="color: var(--text-secondary);">Theoretical basis, computational formulations, dataset provenance, and research limitations.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div class="card">
+            <h3 style="color: var(--cyan-primary); margin-bottom: 0.75rem;">1. Cheminformatics Engine (RDKit)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                Chemical validity is verified using RDKit's Kekulization and valency perception modules. SMILES strings are normalized into canonical representations, eliminating duplicate chemical formulations. Descriptors (MW, LogP, TPSA, HBD, HBA) are calculated using 2D topological graph invariants.
+            </p>
+        </div>
+
+        <div class="card card-quantum">
+            <h3 style="color: var(--purple-quantum); margin-bottom: 0.75rem;">2. Quantum Machine Learning Formulation</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                Classical descriptors are normalized onto the interval $[0, \pi]$ and mapped into parameterized quantum states $|\Phi(x)\rangle$ using a $ZZ\text{FeatureMap}$ with linear qubit entanglement. Quantum kernel matrix elements $K_{ij} = |\langle\Phi(x_i)|\Phi(x_j)\rangle|^2$ compute non-linear inner products in a 16-dimensional Hilbert space ($N=4$ qubits) executed on the Qiskit Aer simulator.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3 style="color: var(--emerald-bio); margin-bottom: 0.75rem;">3. Multi-Objective Optimization</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                Candidate fitness is evaluated via a composite objective balancing aqueous solubility targets, synthetic accessibility approximations, and penalty filters for compounds violating Lipinski's Rule of Five.
+            </p>
+        </div>
+
+        <div class="card" style="border-color: rgba(245, 158, 11, 0.3);">
+            <h3 style="color: var(--amber-warn); margin-bottom: 0.75rem;">4. Academic Integrity & Limitations</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                All predictions represent computational approximations. No computational model replaces in vitro binding assays, pharmacokinetic profiling, or physical crystal structure validation.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{
+    "fingerprint_ridge": {
+        "mae": 1.0001,
+        "rmse": 1.347,
+        "r2_test": 0.6161,
+        "cv_r2_mean": 0.5342,
+        "cv_r2_std": 0.0589,
+        "training_time_seconds": 0.272,
+        "model_path": "models\\classical\\fingerprint_ridge.joblib"
+    },
+    "fingerprint_random_forest": {
+        "mae": 0.9595,
+        "rmse": 1.2363,
+        "r2_test": 0.6767,
+        "cv_r2_mean": 0.5965,
+        "cv_r2_std": 0.0482,
+        "training_time_seconds": 8.551,
+        "model_path": "models\\classical\\fingerprint_random_forest.joblib"
+    },
+    "fingerprint_svr": {
+        "mae": 0.7827,
+        "rmse": 1.0729,
+        "r2_test": 0.7565,
+        "cv_r2_mean": 0.6945,
+        "cv_r2_std": 0.0413,
+        "training_time_seconds": 5.148,
+        "model_path": "models\\classical\\fingerprint_svr.joblib"
+    },
+    "fingerprint_gradient_boosting": {
+        "mae": 0.8959,
+        "rmse": 1.2079,
+        "r2_test": 0.6913,
+        "cv_r2_mean": 0.6242,
+        "cv_r2_std": 0.0416,
+        "training_time_seconds": 17.876,
+        "model_path": "models\\classical\\fingerprint_gradient_boosting.joblib"
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "campaign_name": "Test CI/CD Campaign",
+  "timestamp": "2026-09-04T08:55:45.397597Z",
+  "execution_time_seconds": 0.77,
+  "total_generated_raw": 20,
+  "evaluated_valid_count": 20,
+  "validity_rate": 100.0,
+  "uniqueness_rate": 100.0,
+  "novelty_rate": 70.0,
+  "pareto_optimal_count": 11,
+  "pareto_percentage": 55.0,
+  "ro5_compliance_rate": 100.0,
+  "internal_diversity_score": 0.86,
+  "mean_solubility_logs": -2.23,
+  "mean_qed_drug_likeness": 0.621,
+  "mean_quantum_fidelity": 0.601,
+  "mean_composite_score": 63.9,
+  "top_candidate_id": "QMOL-001",
+  "top_candidate_smiles": "O=C(O)c1ccccc1O",
+  "top_candidate_score": 78.1
+}

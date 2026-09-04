@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Q-MolGen | Quantum-Enhanced Generative AI for De Novo Molecule Design{% endblock %}</title>
+    
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    
+    <!-- Chart.js for Scientific Analytics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Top Scientific Navigation Bar -->
+    <nav class="navbar">
+        <a href="/" class="nav-brand">
+            <span style="color: var(--cyan-primary);">Q</span>-MolGen
+            <span class="brand-badge">Hybrid AI & QML</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+            <li><a href="/generate/" class="{% if '/generate' in request.path %}active{% endif %}">Generate</a></li>
+            <li><a href="/results/" class="{% if '/results' in request.path %}active{% endif %}">Results</a></li>
+            <li><a href="/comparison/" class="{% if '/comparison' in request.path %}active{% endif %}">Model Benchmark</a></li>
+            <li><a href="/quantum/" class="{% if '/quantum' in request.path %}active{% endif %}">Quantum Analysis</a></li>
+            <li><a href="/dashboard/" class="{% if '/dashboard' in request.path %}active{% endif %}">Analytics</a></li>
+            <li><a href="/library/" class="{% if '/library' in request.path %}active{% endif %}">Candidate Library</a></li>
+            <li><a href="/about/" class="{% if '/about' in request.path %}active{% endif %}">Methodology</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Mandatory Scientific Disclaimer Alert -->
+        <div class="disclaimer-banner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <div>
+                <strong>Research Notice:</strong> Q-MolGen is a computational molecular design & candidate prioritization platform. Predictions are simulated and require in vitro / in vivo experimental wet-lab validation.
+            </div>
+        </div>
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer style="border-top: 1px solid var(--border-subtle); padding: 2rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: auto;">
+        <p>Q-MolGen &bull; Quantum-Enhanced Generative AI for De Novo Molecule Design &bull; Final-Year Research Project</p>
+    </footer>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

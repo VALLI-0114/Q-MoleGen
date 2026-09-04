@@ -1,0 +1,10 @@
+{
+  "total_evaluated": 60,
+  "pareto_optimal_count": 18,
+  "pareto_optimal_percentage": 30.0,
+  "mean_composite_score": 60.28,
+  "max_composite_score": 78.7,
+  "mean_qed": 0.649,
+  "mean_pred_logs": -2.768,
+  "ro5_compliance_rate": 100.0
+}

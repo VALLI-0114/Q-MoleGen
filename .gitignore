@@ -1,0 +1,53 @@
+# Python Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+dist-ssr/
+frontend/dist-ssr/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+frontend/.env
+*.env
+
+# Django specific
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+
+# Data & Model Checkpoints (avoid pushing massive raw archives)
+data/raw/*.tar.gz
+data/raw/*.zip
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

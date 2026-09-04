@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Candidate Library | Q-MolGen{% endblock %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+            <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">Repository</span>
+            <h1 style="font-size: 2.2rem;">Prioritized Candidate Library</h1>
+            <p style="color: var(--text-secondary);">Search, filter, and export computationally prioritized candidates.</p>
+        </div>
+        <button class="btn btn-primary" onclick="alert('Exporting candidate dataset to CSV...')">Export CSV</button>
+    </div>
+
+    <div class="card" style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
+            <thead>
+                <tr style="border-bottom: 1px solid var(--border-subtle); color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase;">
+                    <th style="padding: 1rem;">Rank</th>
+                    <th style="padding: 1rem;">Candidate ID</th>
+                    <th style="padding: 1rem;">SMILES</th>
+                    <th style="padding: 1rem;">MW (Da)</th>
+                    <th style="padding: 1rem;">LogP</th>
+                    <th style="padding: 1rem;">TPSA</th>
+                    <th style="padding: 1rem;">Pred LogS</th>
+                    <th style="padding: 1rem;">QML Score</th>
+                    <th style="padding: 1rem;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cand in candidates %}
+                <tr style="border-bottom: 1px solid var(--border-subtle);">
+                    <td style="padding: 1rem;"><span class="badge badge-cyan">#{{ forloop.counter }}</span></td>
+                    <td style="padding: 1rem; font-weight: 600;">{{ cand.name }}</td>
+                    <td style="padding: 1rem;"><code class="smiles-code" style="font-size: 0.78rem;">{{ cand.smiles }}</code></td>
+                    <td style="padding: 1rem;">{{ cand.molecular_weight }}</td>
+                    <td style="padding: 1rem;">{{ cand.logp }}</td>
+                    <td style="padding: 1rem;">{{ cand.tpsa }} Å²</td>
+                    <td style="padding: 1rem; color: var(--emerald-bio); font-weight: 600;">{{ cand.pred_solubility }}</td>
+                    <td style="padding: 1rem; color: var(--purple-quantum); font-weight: 600;">{{ cand.quantum_score }}</td>
+                    <td style="padding: 1rem;"><a href="/molecule/{{ cand.id }}/" class="btn btn-outline" style="padding: 0.35rem 0.75rem; font-size: 0.8rem;">Inspect</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

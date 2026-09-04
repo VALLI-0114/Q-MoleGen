@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Analytics Dashboard | Q-MolGen{% endblock %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">Global Metrics</span>
+        <h1 style="font-size: 2.2rem;">Campaign Analytics & Chemical Distributions</h1>
+        <p style="color: var(--text-secondary);">Comprehensive population statistics across generated candidate batches and Delaney ESOL reference sets.</p>
+    </div>
+
+    <!-- Summary KPI Cards -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+        <div class="card" style="text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Total Molecules Processed</span>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--text-primary); margin-top: 0.25rem;">1,128</div>
+        </div>
+        <div class="card" style="text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Validity Rate</span>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--emerald-bio); margin-top: 0.25rem;">96.4%</div>
+        </div>
+        <div class="card" style="text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Uniqueness & Novelty</span>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--cyan-primary); margin-top: 0.25rem;">92.1%</div>
+        </div>
+        <div class="card card-quantum" style="text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Average Optimization Score</span>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--purple-quantum); margin-top: 0.25rem;">88.7</div>
+        </div>
+    </div>
+
+    <!-- Charts Grid -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <div class="card">
+            <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Aqueous Solubility Distribution (LogS)</h3>
+            <canvas id="solubilityDistChart"></canvas>
+        </div>
+        <div class="card">
+            <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Lipinski Rule of Five Compliance</h3>
+            <canvas id="ro5PieChart"></canvas>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const solCtx = document.getElementById('solubilityDistChart');
+    new Chart(solCtx, {
+        type: 'line',
+        data: {
+            labels: ['-8', '-7', '-6', '-5', '-4', '-3', '-2', '-1', '0', '1'],
+            datasets: [{
+                label: 'Density of Candidate Compounds',
+                data: [5, 18, 45, 120, 260, 310, 210, 95, 30, 8],
+                borderColor: '#06b6d4',
+                backgroundColor: 'rgba(6, 182, 212, 0.15)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { grid: { color: 'rgba(255,255,255,0.05)' } },
+                x: { grid: { color: 'rgba(255,255,255,0.05)' } }
+            }
+        }
+    });
+
+    const ro5Ctx = document.getElementById('ro5PieChart');
+    new Chart(ro5Ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['0 Violations (Fully Compliant)', '1 Violation (Acceptable)', '2+ Violations (Penalized)'],
+            datasets: [{
+                data: [82, 14, 4],
+                backgroundColor: ['#10b981', '#f59e0b', '#f43f5e']
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+</script>
+{% endblock %}

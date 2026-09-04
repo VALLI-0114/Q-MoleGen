@@ -1,0 +1,24 @@
+{
+  "homo_lumo_gap_ev": {
+    "r2": 0.7843917766029005,
+    "mae": 0.45506268036971664,
+    "rmse": 0.6051684931085204
+  },
+  "dipole_moment_debye": {
+    "r2": 0.47668157819657686,
+    "mae": 0.759227168445484,
+    "rmse": 1.0937086834463907
+  },
+  "features": [
+    "molecular_weight",
+    "logp",
+    "tpsa",
+    "hbd",
+    "hba",
+    "rotatable_bonds",
+    "molar_refractivity",
+    "fraction_csp3"
+  ],
+  "n_train": 4000,
+  "n_test": 1000
+}

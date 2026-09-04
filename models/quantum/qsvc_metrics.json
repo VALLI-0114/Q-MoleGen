@@ -1,0 +1,63 @@
+{
+  "model_type": "Quantum Support Vector Classifier (QSVC)",
+  "quantum_feature_map": "ZZFeatureMap (Second-Order Pauli Expansion)",
+  "num_qubits": 4,
+  "circuit_depth": 19,
+  "gate_counts": {
+    "p": 14,
+    "cx": 12,
+    "h": 8
+  },
+  "training_time_sec": 0.8142,
+  "dataset_split": "Full (1128 molecules)",
+  "train_metrics": {
+    "accuracy": 0.9113082039911308,
+    "precision": 0.9193899782135077,
+    "recall": 0.9075268817204301,
+    "f1_score": 0.9134199134199135,
+    "roc_auc": 0.9687606112054329,
+    "confusion_matrix": [
+      [
+        400,
+        37
+      ],
+      [
+        43,
+        422
+      ]
+    ],
+    "n_samples": 902,
+    "n_support_vectors": 351,
+    "circuit_depth": 19,
+    "gate_counts": {
+      "p": 14,
+      "cx": 12,
+      "h": 8
+    }
+  },
+  "test_metrics": {
+    "accuracy": 0.8982300884955752,
+    "precision": 0.8983050847457628,
+    "recall": 0.905982905982906,
+    "f1_score": 0.902127659574468,
+    "roc_auc": 0.9587548027915,
+    "confusion_matrix": [
+      [
+        97,
+        12
+      ],
+      [
+        11,
+        106
+      ]
+    ],
+    "n_samples": 226,
+    "n_support_vectors": 351,
+    "circuit_depth": 19,
+    "gate_counts": {
+      "p": 14,
+      "cx": 12,
+      "h": 8
+    }
+  }
+}

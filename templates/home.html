@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Q-MolGen | Quantum-Enhanced Generative AI for De Novo Molecule Design{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding: 3rem 1rem 4rem 1rem;">
+    <span class="badge badge-cyan" style="margin-bottom: 1.25rem;">Research-Grade Generative Chemistry</span>
+    <h1 style="font-size: 3rem; font-weight: 800; max-width: 900px; margin: 0 auto 1.5rem auto; line-height: 1.2;">
+        Quantum-Enhanced Generative AI for <span style="background: linear-gradient(135deg, var(--cyan-primary), var(--purple-quantum)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">De Novo Molecule Design</span>
+    </h1>
+    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 750px; margin: 0 auto 2.5rem auto;">
+        A hybrid classical-quantum computational framework combining RDKit cheminformatics, deep generative sequence modeling, and simulator-based quantum kernel property optimization.
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/generate/" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            Explore Molecular Candidates
+        </a>
+        <a href="/comparison/" class="btn btn-outline">
+            View Model Benchmark
+        </a>
+    </div>
+</div>
+
+<!-- Core System Highlights -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+    <div class="card">
+        <span class="badge badge-cyan" style="margin-bottom: 1rem;">01. Cheminformatics</span>
+        <h3 style="margin-bottom: 0.5rem;">RDKit Graph Processing</h3>
+        <p style="color: var(--text-secondary); font-size: 0.92rem;">Automated valency validation, canonical SMILES normalization, and continuous 1D physicochemical descriptor calculation.</p>
+    </div>
+    <div class="card card-quantum">
+        <span class="badge badge-purple" style="margin-bottom: 1rem;">02. Quantum ML</span>
+        <h3 style="margin-bottom: 0.5rem;">Quantum Kernel Estimators</h3>
+        <p style="color: var(--text-secondary); font-size: 0.92rem;">Simulated parameterized quantum circuits (PQCs) and Quantum Support Vector Classifiers (QSVC) for non-linear Hilbert space mapping.</p>
+    </div>
+    <div class="card">
+        <span class="badge badge-success" style="margin-bottom: 1rem;">03. Multi-Objective</span>
+        <h3 style="margin-bottom: 0.5rem;">Pareto Candidate Steering</h3>
+        <p style="color: var(--text-secondary); font-size: 0.92rem;">Simultaneous optimization of aqueous solubility (LogS), synthetic feasibility, and Lipinski's Rule of Five compliance.</p>
+    </div>
+</div>
+
+<!-- Architecture Pipeline Flow -->
+<div class="card" style="margin-bottom: 3rem;">
+    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Computational Discovery Pipeline</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding: 1.5rem 0; text-align: center;">
+        <div style="flex: 1; min-width: 150px;">
+            <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid var(--border-highlight); padding: 1rem; border-radius: 10px;">
+                <strong>1. Target Objectives</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Solubility, MW, LogP</p>
+            </div>
+        </div>
+        <div style="color: var(--cyan-primary); font-size: 1.5rem;">&rarr;</div>
+        <div style="flex: 1; min-width: 150px;">
+            <div style="background: rgba(6, 182, 212, 0.1); border: 1px solid var(--border-highlight); padding: 1rem; border-radius: 10px;">
+                <strong>2. Generative AI</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">SMILES Sampling</p>
+            </div>
+        </div>
+        <div style="color: var(--cyan-primary); font-size: 1.5rem;">&rarr;</div>
+        <div style="flex: 1; min-width: 150px;">
+            <div style="background: rgba(139, 92, 246, 0.1); border: 1px solid var(--border-quantum); padding: 1rem; border-radius: 10px;">
+                <strong>3. Hybrid ML/QML</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">QSVC & Regressors</p>
+            </div>
+        </div>
+        <div style="color: var(--purple-quantum); font-size: 1.5rem;">&rarr;</div>
+        <div style="flex: 1; min-width: 150px;">
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 1rem; border-radius: 10px;">
+                <strong>4. Candidate Library</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Ranked Prioritization</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

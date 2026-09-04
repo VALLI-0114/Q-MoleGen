@@ -1,0 +1,42 @@
+{
+    "linear_regression": {
+        "mae": 0.7672,
+        "rmse": 1.0332,
+        "r2_test": 0.7742,
+        "cv_r2_mean": 0.7869,
+        "cv_r2_std": 0.0111,
+        "model_path": "models\\classical\\linear_regression.joblib"
+    },
+    "ridge_regression": {
+        "mae": 0.7672,
+        "rmse": 1.0314,
+        "r2_test": 0.7749,
+        "cv_r2_mean": 0.7873,
+        "cv_r2_std": 0.012,
+        "model_path": "models\\classical\\ridge_regression.joblib"
+    },
+    "random_forest": {
+        "mae": 0.5402,
+        "rmse": 0.7835,
+        "r2_test": 0.8701,
+        "cv_r2_mean": 0.8903,
+        "cv_r2_std": 0.0146,
+        "model_path": "models\\classical\\random_forest.joblib"
+    },
+    "support_vector_regressor": {
+        "mae": 0.5509,
+        "rmse": 0.7979,
+        "r2_test": 0.8653,
+        "cv_r2_mean": 0.8734,
+        "cv_r2_std": 0.0046,
+        "model_path": "models\\classical\\support_vector_regressor.joblib"
+    },
+    "gradient_boosting": {
+        "mae": 0.5374,
+        "rmse": 0.7697,
+        "r2_test": 0.8747,
+        "cv_r2_mean": 0.8893,
+        "cv_r2_std": 0.0089,
+        "model_path": "models\\classical\\gradient_boosting.joblib"
+    }
+}

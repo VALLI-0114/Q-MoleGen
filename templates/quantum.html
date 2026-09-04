@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Quantum Analysis & Circuit Diagnostics | Q-MolGen{% endblock %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <span class="badge badge-purple" style="margin-bottom: 0.5rem;">Quantum Simulation</span>
+        <h1 style="font-size: 2.2rem;">Quantum Kernel & Feature Map Analysis</h1>
+        <p style="color: var(--text-secondary);">Statevector simulation parameters, parameterized quantum circuit (PQC) depth, and non-linear Hilbert space projection.</p>
+    </div>
+
+    <!-- Quantum Circuit Diagnostics Grid -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem;">
+        <div class="card card-quantum" style="text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Active Qubits</span>
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--purple-quantum); margin-top: 0.25rem;">4 Qubits</div>
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">dim(H) = 16</span>
+        </div>
+        <div class="card card-quantum" style="text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Feature Map</span>
+            <div style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-top: 0.4rem;">ZZFeatureMap</div>
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">Entanglement: Linear</span>
+        </div>
+        <div class="card card-quantum" style="text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Circuit Depth</span>
+            <div style="font-size: 1.8rem; font-weight: 800; color: var(--cyan-primary); margin-top: 0.25rem;">14 Gates</div>
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">H + RZ + CNOT</span>
+        </div>
+        <div class="card card-quantum" style="text-align: center;">
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Quantum Backend</span>
+            <div style="font-size: 1.4rem; font-weight: 700; color: var(--emerald-bio); margin-top: 0.4rem;">AerSimulator</div>
+            <span style="font-size: 0.75rem; color: var(--text-secondary);">1024 Shots / Statevector</span>
+        </div>
+    </div>
+
+    <!-- Circuit Architecture Card -->
+    <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="margin-bottom: 1rem; color: var(--purple-quantum);">Parameterized Quantum Feature Map Workflow</h3>
+        <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: 10px; font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-code); line-height: 1.8; overflow-x: auto;">
+            q_0: ──[ H ]──[ Rz(x_0) ]─────■───────────────■──────────
+                                          │               │          
+            q_1: ──[ H ]──[ Rz(x_1) ]─────■─────■─────────┼──────────
+                                                │         │          
+            q_2: ──[ H ]──[ Rz(x_2) ]───────────■─────■───┼──────────
+                                                      │   │          
+            q_3: ──[ H ]──[ Rz(x_3) ]─────────────────■───■──────────
+        </div>
+    </div>
+</div>
+{% endblock %}

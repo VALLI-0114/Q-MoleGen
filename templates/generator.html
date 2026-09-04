@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Molecular Generator | Q-MolGen{% endblock %}
+
+{% block content %}
+<div style="max-width: 900px; margin: 0 auto;">
+    <div style="margin-bottom: 2rem;">
+        <span class="badge badge-cyan" style="margin-bottom: 0.5rem;">Interactive Generator</span>
+        <h1 style="font-size: 2.2rem;">Configure Molecular Generation</h1>
+        <p style="color: var(--text-secondary);">Set target property objectives, computational evaluation models, and multi-objective optimization weights.</p>
+    </div>
+
+    <div class="card">
+        <form action="/results/" method="GET">
+            <!-- 1. Target Objectives -->
+            <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem; color: var(--cyan-primary);">1. Target Physicochemical Objectives</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                <div>
+                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Solubility Target (LogS)</label>
+                    <select class="form-control" style="width: 100%; padding: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px;">
+                        <option value="high">High Solubility (LogS > -2.0)</option>
+                        <option value="moderate" selected>Moderate Solubility (-4.0 to -2.0)</option>
+                        <option value="custom">Custom Constraint</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Molecular Weight Range (Da)</label>
+                    <input type="text" value="150 - 450 Da" style="width: 100%; padding: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px;">
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                <div>
+                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Target Lipophilicity (LogP Range)</label>
+                    <input type="text" value="1.0 to 3.5" style="width: 100%; padding: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px;">
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Polar Surface Area (TPSA Range)</label>
+                    <input type="text" value="40 - 120 Å²" style="width: 100%; padding: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px;">
+                </div>
+            </div>
+
+            <!-- 2. Batch Size & Evaluation Engine -->
+            <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem; color: var(--purple-quantum);">2. Evaluation Engine & Batch Sampling</h3>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                <div>
+                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Number of Candidate Molecules</label>
+                    <select style="width: 100%; padding: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px;">
+                        <option value="10">10 Candidates (Fast Preview)</option>
+                        <option value="25" selected>25 Candidates (Recommended)</option>
+                        <option value="50">50 Candidates</option>
+                        <option value="100">100 Candidates (Deep Campaign)</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Evaluation Model Architecture</label>
+                    <select style="width: 100%; padding: 0.75rem; background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); color: var(--text-primary); border-radius: 8px;">
+                        <option value="hybrid" selected>Hybrid Classical-Quantum Consensus</option>
+                        <option value="quantum">Quantum Kernel (QSVC 4-Qubit Simulator)</option>
+                        <option value="classical">Classical Random Forest + SVR</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 3. Action Button -->
+            <div style="text-align: right;">
+                <button type="submit" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1.05rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    Generate & Rank Candidates
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

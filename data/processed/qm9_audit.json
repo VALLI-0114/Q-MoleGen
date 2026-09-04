@@ -1,0 +1,43 @@
+{
+  "dataset_name": "QM9 (Quantum Chemistry Electronic Properties Subset)",
+  "source": "https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/qm9.csv",
+  "methodology": "Density Functional Theory (DFT) B3LYP/6-31G(2df,p)",
+  "total_molecules_curated": 5000,
+  "columns": [
+    "compound_id",
+    "canonical_smiles",
+    "heavy_atom_count",
+    "homo_ev",
+    "lumo_ev",
+    "gap_ev",
+    "dipole_moment_debye",
+    "polarizability_bohr3",
+    "heat_capacity_cv"
+  ],
+  "statistics": {
+    "homo_ev": {
+      "mean": -6.5326769,
+      "std": 0.5942051537788489,
+      "min": -9.5702,
+      "max": -3.649
+    },
+    "lumo_ev": {
+      "mean": 0.32309304,
+      "std": 1.275628538980471,
+      "min": -3.7116,
+      "max": 2.7538
+    },
+    "gap_ev": {
+      "mean": 6.85576238,
+      "std": 1.299974297271084,
+      "min": 2.147,
+      "max": 11.6955
+    },
+    "dipole_moment_debye": {
+      "mean": 2.6981825400000004,
+      "std": 1.5164308688526327,
+      "min": 0.0,
+      "max": 18.2805
+    }
+  }
+}
