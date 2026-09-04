@@ -132,7 +132,7 @@ export default function ResearcherDashboard({ setTab }) {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center' }}>
           <button
             onClick={() => setTab('generator')}
             onMouseEnter={() => setIsHoverPrimary(true)}
@@ -153,12 +153,35 @@ export default function ResearcherDashboard({ setTab }) {
               clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
               boxShadow: isHoverPrimary 
                 ? '0 0 0 2px rgba(21, 188, 223, 0.4), 0 12px 24px -8px rgba(15, 163, 194, 0.7)' 
-                : '0 0 0 1px rgba(21, 188, 223, 0.3), 0 6px 18px -6px rgba(15, 163, 194, 0.5)',
+                : '0 0 0 1px rgba(21, 188, 223, 0.3), 0 8px 20px -8px rgba(15, 163, 194, 0.5)',
               transition: 'all 0.25s ease',
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
             }}
           >
-            <Plus size={16} /> New Campaign
+            <Sparkles size={16} />
+            <span>Generate Lead Candidates</span>
           </button>
+
+          <a
+            href="/Q-MoleGen_Comprehensive_Project_Report.pdf"
+            download="Q-MoleGen_Comprehensive_Project_Report.pdf"
+            style={{
+              padding: '11px 18px',
+              fontSize: '13px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '7px',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              fontWeight: 700,
+              color: '#0f172a',
+              background: '#f1f5f9',
+              border: '1px solid #cbd5e1'
+            }}
+          >
+            <FileText size={15} color="#0284c7" />
+            <span>Download Report (PDF)</span>
+          </a>
 
           <button
             onClick={handleExportCSV}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import BrandLogo from '../components/BrandLogo';
+import { FileText, Download } from 'lucide-react';
 
 export default function LandingPage({ setTab, setUserRole, onOpenAuth }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -481,13 +482,17 @@ export default function LandingPage({ setTab, setUserRole, onOpenAuth }) {
           </p>
         </div>
 
-        {/* CTA BUTTON */}
+        {/* CTA BUTTONS */}
         <div
           style={{
             position: 'relative',
             zIndex: 2,
             paddingLeft: isMobile ? '24px' : 'clamp(24px, 7vw, 90px)',
             paddingBottom: 'min(clamp(32px, 5vw, 70px), 6vh)',
+            display: 'flex',
+            gap: '14px',
+            flexWrap: 'wrap',
+            alignItems: 'center',
           }}
         >
           <button
@@ -527,6 +532,41 @@ export default function LandingPage({ setTab, setUserRole, onOpenAuth }) {
               }}
             />
           </button>
+
+          <a
+            href="/Q-MoleGen_Comprehensive_Project_Report.pdf"
+            download="Q-MoleGen_Comprehensive_Project_Report.pdf"
+            style={{
+              backgroundColor: '#ffffff',
+              border: '1px solid #cbd5e1',
+              color: '#0f172a',
+              textTransform: 'uppercase',
+              fontWeight: 700,
+              letterSpacing: '0.06em',
+              padding: '15px 24px',
+              fontSize: 'clamp(12px, 1.6vw, 14px)',
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              textDecoration: 'none',
+              borderRadius: '6px',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+              transition: 'all 0.2s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#0284c7';
+              e.currentTarget.style.color = '#0284c7';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = '#cbd5e1';
+              e.currentTarget.style.color = '#0f172a';
+            }}
+          >
+            <FileText size={16} color="#0284c7" />
+            <span>Download Report (PDF)</span>
+          </a>
         </div>
       </section>
 
