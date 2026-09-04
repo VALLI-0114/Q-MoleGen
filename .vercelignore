@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Git
+.git/
+.gitignore
+
+# Development
+.vscode/
+.idea/
+
+# Tests
+tests/
+test/
+pytest.ini
+.coverage
+htmlcov/
+
+# Notebooks
+*.ipynb
+.ipynb_checkpoints/
+jupyter/
+notebooks/
+
+# ML development files
+datasets/
+dataset/
+data/
+training/
+train/
+checkpoints/
+runs/
+experiments/
+
+# Large model files
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+
+# Documentation/dev files
+docs/
+README.md
+
+# Local database
+*.sqlite3
+db.sqlite3
+
+# Development visualization
+*.png
+*.jpg
+*.jpeg
+
+# ML requirements
+requirements-ml.txt
