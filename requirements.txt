@@ -1,35 +1,3 @@
-# Core & Utilities
-numpy>=1.24.0
-scipy>=1.10.0
-pandas>=2.0.0
-tqdm>=4.65.0
-pyyaml>=6.0
-
-# Cheminformatics & Molecular Modeling
-rdkit>=2023.3.1
-
-# Deep Learning (Classical)
-torch>=2.0.0
-torchvision>=0.15.0
-torchaudio>=2.0.0
-torch-geometric>=2.3.0
-
-# Quantum Computing & Quantum ML
-qiskit>=1.0.0
-pennylane>=0.35.0
-
-# Web Application
-django>=4.2.0
-djangorestframework>=3.14.0
-django-cors-headers>=4.0.0
-
-# Visualization & Notebooks
-matplotlib>=3.7.0
-seaborn>=0.12.0
-jupyter>=1.0.0
-ipykernel>=6.22.0
-
-# Testing & Code Quality
-pytest>=7.3.0
-black>=23.3.0
-flake8>=6.0.0
+Django>=4.2,<6.2
+djangorestframework>=3.14,<4.0
+django-cors-headers>=4.0,<5.0
