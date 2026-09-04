@@ -311,73 +311,38 @@ export default function Contact({ setTab, onOpenAuth }) {
 
         {/* Right: Contact Information & Hubs */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          {/* Card 1: Academic & Research Facilities Attribution */}
-          <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '12px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#0284c7', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem' }}>
-              <Building size={16} />
-              Academic &amp; Research Facilities
-            </div>
-            <h3 style={{ margin: '0 0 0.75rem 0', fontSize: '1.2rem', color: '#0f172a', fontWeight: 800 }}>
-              Academic Project Leadership
-            </h3>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {/* Developer */}
-              <div style={{ background: '#f8fafc', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#0369a1', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                  Developed By
-                </div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', marginTop: '2px' }}>
-                  Pravallika Kundum
-                </div>
-                <div style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '2px' }}>
-                  B.Tech Final-Year Capstone Project
-                </div>
-              </div>
-
-              {/* Project Guide */}
-              <div style={{ background: '#f8fafc', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#7c3aed', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                  Project Guide
-                </div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', marginTop: '2px' }}>
-                  Dr. G. JayaSuma
-                </div>
-                <div style={{ fontSize: '0.85rem', color: '#475569', marginTop: '2px', fontWeight: 600 }}>
-                  Professor of Information Technology Department
-                </div>
-              </div>
-            </div>
-
-            <div style={{ marginTop: '1rem', paddingTop: '0.85rem', borderTop: '1px solid #e2e8f0', fontSize: '0.85rem', color: '#334155' }}>
-              <div><strong>Direct Contact:</strong> <a href="mailto:contact@qmolegen.org" style={{ color: '#0284c7', textDecoration: 'none' }}>contact@qmolegen.org</a></div>
-            </div>
-          </div>
-
-          {/* Card 3: Direct Role Portals */}
-          <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '12px' }}>
+          {/* Card: Direct Role Portals */}
+          <div className="glass-card" style={{ padding: '1.75rem', borderRadius: '12px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: '#059669', fontWeight: 700, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.4rem' }}>
               <Shield size={16} />
               Persona-Based Sign Up
             </div>
-            <h3 style={{ margin: '0 0 0.75rem 0', fontSize: '1.15rem', color: '#0f172a' }}>
+            <h3 style={{ margin: '0 0 0.75rem 0', fontSize: '1.2rem', color: '#0f172a', fontWeight: 800 }}>
               Register Your Role Account
             </h3>
-            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <p style={{ fontSize: '0.88rem', color: '#64748b', margin: '0 0 1.25rem 0', lineHeight: 1.5 }}>
+              Create an account with role-based access for automated screening, quantum-classical workflows, and administrative experiment management.
+            </p>
+            <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
               <button
                 onClick={() => onOpenAuth && onOpenAuth('Researcher')}
                 className="btn btn-outline"
-                style={{ fontSize: '0.82rem', padding: '0.4rem 0.8rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                style={{ fontSize: '0.88rem', padding: '0.55rem 1.1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, borderColor: '#0284c7', color: '#0369a1' }}
               >
-                <Microscope size={14} color="#0284c7" /> Researcher
+                <Microscope size={16} color="#0284c7" /> Researcher Portal
               </button>
               <button
                 onClick={() => onOpenAuth && onOpenAuth('Admin')}
                 className="btn btn-outline"
-                style={{ fontSize: '0.82rem', padding: '0.4rem 0.8rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                style={{ fontSize: '0.88rem', padding: '0.55rem 1.1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, borderColor: '#7c3aed', color: '#7c3aed' }}
               >
-                <Shield size={14} color="#7c3aed" /> Admin
+                <Shield size={16} color="#7c3aed" /> Admin Portal
               </button>
+            </div>
+
+            <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #e2e8f0', fontSize: '0.88rem', color: '#334155' }}>
+              <div><strong>Direct Support:</strong> <a href="mailto:contact@qmolegen.org" style={{ color: '#0284c7', textDecoration: 'none', fontWeight: 600 }}>contact@qmolegen.org</a></div>
+              <div style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '4px' }}>Typical response window: &lt; 24 business hours</div>
             </div>
           </div>
         </div>

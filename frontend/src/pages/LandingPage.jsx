@@ -974,87 +974,38 @@ export default function LandingPage({ setTab, setUserRole, onOpenAuth }) {
 
           {/* Contact Details & Direct Gateway */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {/* Academic & Research Facilities Attribution Card */}
-            <div
-              style={{
-                background: '#ffffff',
-                border: '1px solid #cbd5e1',
-                borderRadius: '12px',
-                padding: '1.5rem',
-                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
-              }}
-            >
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#15BCDF', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                Academic &amp; Research Facilities
-              </span>
-              <h4 style={{ margin: '0.4rem 0 0.75rem 0', fontSize: '1.2rem', color: '#1e2327', fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif", fontWeight: 800 }}>
-                Academic Project Leadership
-              </h4>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                {/* Developer */}
-                <div style={{ background: '#f8fafc', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#0369a1', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                    Developed By
-                  </div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif", marginTop: '2px' }}>
-                    Pravallika Kundum
-                  </div>
-                  <div style={{ fontSize: '0.82rem', color: '#64748b', marginTop: '2px' }}>
-                    B.Tech Final-Year Capstone Project
-                  </div>
-                </div>
-
-                {/* Project Guide */}
-                <div style={{ background: '#f8fafc', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                  <div style={{ fontSize: '0.72rem', fontWeight: 700, color: '#7c3aed', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                    Project Guide
-                  </div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#0f172a', fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif", marginTop: '2px' }}>
-                    Dr. G. JayaSuma
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: '#475569', marginTop: '2px', fontWeight: 600 }}>
-                    Professor of Information Technology Department
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ marginTop: '1rem', paddingTop: '0.85rem', borderTop: '1px solid #e2e8f0', fontSize: '0.88rem', color: '#475569' }}>
-                <strong>Direct Contact:</strong>{' '}
-                <a href="mailto:contact@qmolegen.org" style={{ color: '#0369a1', textDecoration: 'none', fontWeight: 600 }}>
-                  contact@qmolegen.org
-                </a>
-              </div>
-            </div>
-
             {/* Direct Portal Logins */}
             <div
               style={{
                 background: '#ffffff',
                 border: '1px solid #cbd5e1',
                 borderRadius: '12px',
-                padding: '1.5rem',
+                padding: '1.75rem',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)',
               }}
             >
               <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#059669', textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                 Direct Persona Gateway
               </span>
-              <h4 style={{ margin: '0.4rem 0 1rem 0', fontSize: '1.15rem', color: '#1e2327', fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif" }}>
+              <h4 style={{ margin: '0.4rem 0 1rem 0', fontSize: '1.25rem', color: '#1e2327', fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif", fontWeight: 800 }}>
                 Access Your Role Portal
               </h4>
-              <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                 <button
                   onClick={() => onOpenAuth && onOpenAuth('Researcher')}
                   style={{
-                    padding: '0.55rem 1rem',
+                    padding: '0.65rem 1.25rem',
                     background: '#15BCDF',
                     border: '1px solid #0fa3c2',
-                    borderRadius: '6px',
+                    borderRadius: '8px',
                     color: '#111827',
                     fontWeight: 700,
-                    fontSize: '0.85rem',
+                    fontSize: '0.9rem',
                     cursor: 'pointer',
                     fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
                   }}
                 >
                   🔬 Researcher Sign Up
@@ -1062,19 +1013,29 @@ export default function LandingPage({ setTab, setUserRole, onOpenAuth }) {
                 <button
                   onClick={() => onOpenAuth && onOpenAuth('Admin')}
                   style={{
-                    padding: '0.55rem 1rem',
+                    padding: '0.65rem 1.25rem',
                     background: '#ffffff',
                     border: '1px solid #e9d5ff',
-                    borderRadius: '6px',
+                    borderRadius: '8px',
                     color: '#6b21a8',
                     fontWeight: 700,
-                    fontSize: '0.85rem',
+                    fontSize: '0.9rem',
                     cursor: 'pointer',
                     fontFamily: "'Plus Jakarta Sans', sans-serif",
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
                   }}
                 >
                   🔐 Admin Sign Up
                 </button>
+              </div>
+
+              <div style={{ marginTop: '1.5rem', paddingTop: '1rem', borderTop: '1px solid #e2e8f0', fontSize: '0.88rem', color: '#475569' }}>
+                <strong>Direct Contact:</strong>{' '}
+                <a href="mailto:contact@qmolegen.org" style={{ color: '#0369a1', textDecoration: 'none', fontWeight: 600 }}>
+                  contact@qmolegen.org
+                </a>
               </div>
             </div>
           </div>
@@ -1083,3 +1044,4 @@ export default function LandingPage({ setTab, setUserRole, onOpenAuth }) {
     </div>
   );
 }
+
