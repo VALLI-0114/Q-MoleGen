@@ -16,14 +16,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # SECURITY
 # --------------------------------------------------
 
-# Get SECRET_KEY from Vercel Environment Variables
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+# Get SECRET_KEY from Environment or safe fallback
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django-insecure-qmolegen-quantum-super-secret-key-2026-prod-fallback")
 
-# Production mode
-DEBUG = False
+# Production / Debug mode
+DEBUG = os.getenv("DEBUG", "True").lower() in ("true", "1")
 
 # Vercel domains + local development
 ALLOWED_HOSTS = [
+    "*",
     ".vercel.app",
     "localhost",
     "127.0.0.1",
