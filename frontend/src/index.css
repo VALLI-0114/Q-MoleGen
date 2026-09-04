@@ -209,3 +209,95 @@ input:focus, select:focus, textarea:focus {
   animation-play-state: paused;
 }
 
+/* =========================================================================
+   RESPONSIVE & MOBILE ADAPTATIONS
+   ========================================================================= */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Desktop vs Mobile Navigation Breakpoints */
+@media (max-width: 960px) {
+  .desktop-nav-links,
+  .desktop-nav-auth {
+    display: none !important;
+  }
+
+  .mobile-hamburger-btn {
+    display: flex !important;
+  }
+}
+
+/* Mobile Screens Adjustments (< 768px) */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  main {
+    padding: 1.25rem 0.85rem !important;
+  }
+
+  .glass-card {
+    padding: 1.25rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* Responsive Grid Adjustments */
+  .molecule-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Responsive Tables */
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 580px;
+  }
+
+  /* Mobile Touch Targets */
+  .btn {
+    min-height: 42px;
+  }
+
+  /* Compact Badges */
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+/* Extra Small Screens (< 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+  }
+
+  h2 {
+    font-size: 1.45rem !important;
+  }
+
+  main {
+    padding: 1rem 0.65rem !important;
+  }
+
+  .glass-card {
+    padding: 1rem !important;
+  }
+}
+
+
