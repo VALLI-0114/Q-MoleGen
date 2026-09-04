@@ -5,86 +5,187 @@ Django settings for Q-MolGen platform.
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# --------------------------------------------------
+# BASE DIRECTORY
+# --------------------------------------------------
+
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-q-molgen-btech-final-year-2026-key')
 
-DEBUG = True
+# --------------------------------------------------
+# SECURITY
+# --------------------------------------------------
 
-ALLOWED_HOSTS = ['*']
+# Get SECRET_KEY from Vercel Environment Variables
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
-# Application definition
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'corsheaders',
-    'rest_framework',
-    'django_app.dashboard',
+# Production mode
+DEBUG = False
+
+# Vercel domains + local development
+ALLOWED_HOSTS = [
+    ".vercel.app",
+    "localhost",
+    "127.0.0.1",
 ]
+
+
+# --------------------------------------------------
+# APPLICATIONS
+# --------------------------------------------------
+
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+
+    # Third-party
+    "corsheaders",
+    "rest_framework",
+
+    # Local
+    "django_app.dashboard",
+]
+
+
+# --------------------------------------------------
+# MIDDLEWARE
+# --------------------------------------------------
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+
+# --------------------------------------------------
+# CORS
+# --------------------------------------------------
+
 CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOW_CREDENTIALS = True
 
-ROOT_URLCONF = 'django_app.config.urls'
+
+# --------------------------------------------------
+# URL CONFIGURATION
+# --------------------------------------------------
+
+ROOT_URLCONF = "django_app.config.urls"
+
+
+# --------------------------------------------------
+# TEMPLATES
+# --------------------------------------------------
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+
+        "DIRS": [
+            BASE_DIR / "templates",
+        ],
+
+        "APP_DIRS": True,
+
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'django_app.config.wsgi.application'
+
+# --------------------------------------------------
+# WSGI
+# --------------------------------------------------
+
+WSGI_APPLICATION = "django_app.config.wsgi.application"
+
+
+# --------------------------------------------------
+# DATABASE
+# --------------------------------------------------
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
+
+# --------------------------------------------------
+# PASSWORD VALIDATION
+# --------------------------------------------------
+
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "MinimumLengthValidator"
+        ),
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+
+# --------------------------------------------------
+# INTERNATIONALIZATION
+# --------------------------------------------------
+
+LANGUAGE_CODE = "en-us"
+
+TIME_ZONE = "UTC"
+
 USE_I18N = True
+
 USE_TZ = True
 
-STATIC_URL = '/static/'
+
+# --------------------------------------------------
+# STATIC FILES
+# --------------------------------------------------
+
+STATIC_URL = "/static/"
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / "static",
 ]
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# --------------------------------------------------
+# DEFAULT PRIMARY KEY
+# --------------------------------------------------
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# --------------------------------------------------
+# CSRF
+# --------------------------------------------------
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.vercel.app",
+]
