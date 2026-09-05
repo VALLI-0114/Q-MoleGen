@@ -15,6 +15,8 @@ export default function BrandLogo({ size = 'default', light = false, onClick }) 
         userSelect: 'none',
         background: 'transparent',
         transition: 'transform 0.2s ease',
+        flexShrink: 0,
+        whiteSpace: 'nowrap',
       }}
       onMouseEnter={(e) => {
         if (onClick) e.currentTarget.style.transform = 'translateY(-1px)';
@@ -96,25 +98,35 @@ export default function BrandLogo({ size = 'default', light = false, onClick }) 
       </div>
 
       {/* Brand Text: Q-MoleGen */}
-      <div style={{ display: 'flex', alignItems: 'baseline', lineHeight: 1 }}>
+      <div 
+        style={{ 
+          display: 'inline-flex', 
+          alignItems: 'baseline', 
+          lineHeight: 1, 
+          flexShrink: 0, 
+          whiteSpace: 'nowrap' 
+        }}
+      >
         <span
           style={{
-            fontSize: isLarge ? '28px' : '24px',
+            fontSize: isLarge ? '26px' : '22px',
             fontWeight: 900,
             fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif",
             color: '#15BCDF',
             letterSpacing: '-0.02em',
+            whiteSpace: 'nowrap',
           }}
         >
           Q-Mole
         </span>
         <span
           style={{
-            fontSize: isLarge ? '28px' : '24px',
+            fontSize: isLarge ? '26px' : '22px',
             fontWeight: 800,
             fontFamily: "'Outfit', 'Plus Jakarta Sans', sans-serif",
             color: light ? '#ffffff' : '#0f172a',
             letterSpacing: '-0.02em',
+            whiteSpace: 'nowrap',
           }}
         >
           Gen

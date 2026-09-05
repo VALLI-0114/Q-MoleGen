@@ -224,8 +224,29 @@ input:focus, select:focus, textarea:focus {
   }
 }
 
-/* Desktop vs Mobile Navigation Breakpoints */
-@media (max-width: 960px) {
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+}
+
+/* =========================================================================
+   RESPONSIVE & MOBILE ADAPTATIONS
+   ========================================================================= */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Desktop vs Tablet/Mobile Navigation Breakpoints */
+@media (max-width: 1140px) {
   .desktop-nav-links,
   .desktop-nav-auth {
     display: none !important;
@@ -236,6 +257,31 @@ input:focus, select:focus, textarea:focus {
   }
 }
 
+/* Medium Laptop Screens (1141px to 1380px) */
+@media (min-width: 1141px) and (max-width: 1380px) {
+  .desktop-nav-links {
+    gap: 0.15rem !important;
+  }
+
+  .desktop-nav-links button {
+    padding: 0.32rem 0.45rem !important;
+    font-size: 0.78rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .desktop-nav-auth {
+    gap: 0.4rem !important;
+  }
+}
+
+/* Tablet Screens (< 1024px) */
+@media (max-width: 1024px) {
+  .molecule-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 1.25rem !important;
+  }
+}
+
 /* Mobile Screens Adjustments (< 768px) */
 @media (max-width: 768px) {
   body {
@@ -243,7 +289,7 @@ input:focus, select:focus, textarea:focus {
   }
 
   main {
-    padding: 1.25rem 0.85rem !important;
+    padding: 1rem 0.75rem !important;
   }
 
   .glass-card {
@@ -265,7 +311,7 @@ input:focus, select:focus, textarea:focus {
   }
 
   table {
-    min-width: 580px;
+    min-width: 540px;
   }
 
   /* Mobile Touch Targets */
@@ -280,24 +326,25 @@ input:focus, select:focus, textarea:focus {
   }
 }
 
-/* Extra Small Screens (< 480px) */
+/* Extra Small Mobile Screens (< 480px) */
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.85rem !important;
+    font-size: 1.75rem !important;
     line-height: 1.2 !important;
   }
 
   h2 {
-    font-size: 1.45rem !important;
+    font-size: 1.35rem !important;
   }
 
   main {
-    padding: 1rem 0.65rem !important;
+    padding: 0.75rem 0.5rem !important;
   }
 
   .glass-card {
-    padding: 1rem !important;
+    padding: 0.95rem !important;
   }
 }
+
 
 

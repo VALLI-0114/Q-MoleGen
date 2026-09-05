@@ -5,12 +5,11 @@ export default function DisclaimerBanner() {
   const [isPaused, setIsPaused] = useState(false);
 
   const noticeItems = [
-    'Research Notice: Q-MolGen is a computational molecular design and candidate prioritization system.',
-    'All predictions, LogS descriptors, and quantum scores are simulated in silico and require experimental wet-lab validation.',
-    'Supervised by Dr. G. JayaSuma (Professor of Information Technology Department)',
-    'Developed by Pravallika Kundum',
-    'Benchmark Reference: Delaney ESOL Empirical Dataset (1,128 Compounds)',
-    '4-Qubit NISQ ZZ-FeatureMap Hilbert Space Simulation',
+    'Research Notice: Q-MoleGen is a computational molecular design & quantum candidate prioritization platform.',
+    'All LogS aqueous solubility, QED drug-likeness, and SAS scores are simulated in silico via Delaney ESOL benchmarks.',
+    'Quantum Simulation: Parameterized 4-Qubit NISQ ZZ-FeatureMap Hilbert Space (Depth 19, 16-Dim States).',
+    'Machine Learning Champion: Gradient Boosting Ensemble (94.25% Accuracy, 0.977 AUC-ROC).',
+    'Experimental Validation: Generated SMILES candidates require standard wet-lab synthesis & binding assays.',
   ];
 
   const fullTextSegment = (

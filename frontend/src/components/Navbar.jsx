@@ -37,30 +37,30 @@ export default function Navbar({
       return [];
     }
 
-    const commonHome = { id: 'landing', label: 'Home Overview', icon: Home };
-    const commonContact = { id: 'contact', label: 'Contact Us', icon: Mail };
+    const commonHome = { id: 'landing', label: 'Overview', icon: Home };
+    const commonContact = { id: 'contact', label: 'Contact', icon: Mail };
 
     if (userRole === 'Admin') {
       return [
         commonHome,
         { id: 'admin_dashboard', label: 'Admin Center', icon: Shield },
-        { id: 'dataset', label: 'ESOL Dataset', icon: Database },
-        { id: 'comparison', label: 'Model Benchmark', icon: BarChart2 },
-        { id: 'quantum', label: 'Quantum Analysis', icon: Cpu },
+        { id: 'dataset', label: 'ESOL Data', icon: Database },
+        { id: 'comparison', label: 'Benchmarks', icon: BarChart2 },
+        { id: 'quantum', label: 'Quantum', icon: Cpu },
         commonContact,
       ];
     } else {
       // Researcher (Core Role)
       return [
         commonHome,
-        { id: 'researcher_dashboard', label: 'Researcher Portal', icon: Microscope },
+        { id: 'researcher_dashboard', label: 'Portal', icon: Microscope },
         { id: 'generator', label: 'Generate', icon: Compass },
         { id: 'results', label: 'Results', icon: Layers },
-        { id: 'dataset', label: 'ESOL Dataset', icon: Database },
-        { id: 'comparison', label: 'Model Benchmark', icon: BarChart2 },
-        { id: 'quantum', label: 'Quantum Analysis', icon: Cpu },
-        { id: 'analytics', label: 'Experiment Analytics', icon: BarChart2 },
-        { id: 'inspector', label: 'SMILES Inspector', icon: Search },
+        { id: 'dataset', label: 'ESOL Data', icon: Database },
+        { id: 'comparison', label: 'Benchmarks', icon: BarChart2 },
+        { id: 'quantum', label: 'Quantum', icon: Cpu },
+        { id: 'analytics', label: 'Analytics', icon: BarChart2 },
+        { id: 'inspector', label: 'SMILES', icon: Search },
         commonContact,
       ];
     }
@@ -84,7 +84,8 @@ export default function Navbar({
         backdropFilter: 'blur(16px)',
         borderBottom: '1px solid #e2e8f0',
         boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.05)',
-        padding: '0.65rem clamp(1rem, 3vw, 2rem)',
+        padding: '0.6rem clamp(0.75rem, 2vw, 1.5rem)',
+        width: '100%',
       }}
     >
       <div
@@ -99,18 +100,29 @@ export default function Navbar({
         }}
       >
         {/* Brand Logo & Active Role Badge */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
           <BrandLogo onClick={() => { setTab('landing'); setMobileMenuOpen(false); }} showTag={false} />
           {!isLanding && (
-            <span className={`badge ${userRole === 'Admin' ? 'badge-purple' : 'badge-cyan'}`} style={{ fontSize: '0.68rem' }}>
+            <span className={`badge ${userRole === 'Admin' ? 'badge-purple' : 'badge-cyan'}`} style={{ fontSize: '0.68rem', flexShrink: 0 }}>
               {userRole}
             </span>
           )}
         </div>
 
-        {/* Desktop Nav Links (Hidden on mobile screens via CSS) */}
+        {/* Desktop Nav Links (Hidden on mobile & small screens via CSS) */}
         {!isLanding && navItems.length > 0 && (
-          <div className="desktop-nav-links" style={{ display: 'flex', gap: '0.3rem', alignItems: 'center' }}>
+          <div 
+            className="desktop-nav-links" 
+            style={{ 
+              display: 'flex', 
+              gap: '0.2rem', 
+              alignItems: 'center', 
+              flex: '1 1 auto', 
+              justifyContent: 'center',
+              flexWrap: 'nowrap',
+              minWidth: 0,
+            }}
+          >
             {navItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentTab === item.id;
@@ -121,21 +133,22 @@ export default function Navbar({
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
-                    gap: '0.35rem',
-                    padding: '0.4rem 0.7rem',
-                    borderRadius: '8px',
+                    gap: '0.3rem',
+                    padding: '0.38rem 0.55rem',
+                    borderRadius: '7px',
                     border: 'none',
                     background: isActive ? '#e0f2fe' : 'transparent',
                     color: isActive ? '#0369a1' : '#475569',
                     fontWeight: isActive ? 700 : 500,
-                    fontSize: '0.84rem',
+                    fontSize: '0.82rem',
                     cursor: 'pointer',
-                    transition: 'all 0.2s ease',
+                    transition: 'all 0.15s ease',
                     whiteSpace: 'nowrap',
+                    flexShrink: 0,
                   }}
                 >
-                  <Icon size={15} />
-                  {item.label}
+                  <Icon size={14} style={{ flexShrink: 0 }} />
+                  <span>{item.label}</span>
                 </button>
               );
             })}
@@ -143,26 +156,26 @@ export default function Navbar({
         )}
 
         {/* Desktop Auth Controls & Buttons */}
-        <div className="desktop-nav-auth" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+        <div className="desktop-nav-auth" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
           {isLanding ? (
-            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexShrink: 0 }}>
               <button
                 onClick={() => onOpenAuth('Researcher')}
                 className="btn btn-outline"
-                style={{ fontSize: '0.8rem', padding: '0.4rem 0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                style={{ fontSize: '0.8rem', padding: '0.4rem 0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}
               >
                 <Microscope size={14} color="#0284c7" /> Researcher Sign Up
               </button>
               <button
                 onClick={() => onOpenAuth('Admin')}
                 className="btn btn-outline"
-                style={{ fontSize: '0.8rem', padding: '0.4rem 0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                style={{ fontSize: '0.8rem', padding: '0.4rem 0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}
               >
                 <Shield size={14} color="#7c3aed" /> Admin Sign Up
               </button>
             </div>
           ) : currentUser ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -171,6 +184,7 @@ export default function Navbar({
                 border: '1px solid #cbd5e1',
                 padding: '0.35rem 0.75rem',
                 borderRadius: '8px',
+                flexShrink: 0,
               }}>
                 <div style={{
                   background: userRole === 'Admin' ? '#7c3aed' : '#0284c7',
@@ -183,10 +197,11 @@ export default function Navbar({
                   color: '#ffffff',
                   fontSize: '0.75rem',
                   fontWeight: 800,
+                  flexShrink: 0,
                 }}>
                   {currentUser.name ? currentUser.name[0].toUpperCase() : (currentUser.username ? currentUser.username[0].toUpperCase() : 'U')}
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', whiteSpace: 'nowrap' }}>
                   <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#0f172a', lineHeight: 1.1 }}>
                     {currentUser.name || currentUser.username}
                   </span>
@@ -200,7 +215,7 @@ export default function Navbar({
                 onClick={onLogout}
                 className="btn btn-outline"
                 title="Sign Out to return to landing page"
-                style={{ padding: '0.4rem 0.65rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
+                style={{ padding: '0.4rem 0.65rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.3rem', whiteSpace: 'nowrap', flexShrink: 0 }}
               >
                 <LogOut size={14} /> Log Out
               </button>
@@ -209,7 +224,7 @@ export default function Navbar({
             <button
               onClick={() => onOpenAuth(userRole)}
               className="btn btn-primary"
-              style={{ padding: '0.45rem 1rem', fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+              style={{ padding: '0.45rem 1rem', fontSize: '0.85rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.4rem', whiteSpace: 'nowrap', flexShrink: 0 }}
             >
               <LogIn size={15} /> Sign Up
             </button>

@@ -180,7 +180,7 @@ export default function App() {
         fontSize: '0.85rem',
         marginTop: 'auto'
       }}>
-        <p>Q-MolGen &bull; Quantum-Enhanced Generative AI for De Novo Molecule Design &bull; Final-Year Research Platform</p>
+        <p>Q-MoleGen &bull; Quantum-Enhanced Generative AI for De Novo Molecule Design &bull; Final-Year Research Platform</p>
       </footer>
 
       {/* Role-Based Auth Modal */}
