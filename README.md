@@ -215,10 +215,8 @@ Evaluated against the **Delaney ESOL** physical chemistry benchmark dataset (1,1
   *Professor, Department of Information Technology*
 
 ### Student Contributors & Research Team
-- **D. Pravallika** (22031A1215)
-- **S. Sai Pavan** (22031A1255)
-- **G. Vyshnavi** (22031A1219)
-- **T. Jagadeesh** (22031A1260)
+- **K. Pravallika** (23VV1A1223)
+
 
 ---
 
